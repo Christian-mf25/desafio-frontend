@@ -1,4 +1,5 @@
 import ReactDOM from "react-dom/client";
+import Providers from "./Providers";
 import React from "react";
 import App from "./App";
 
@@ -8,6 +9,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App />
+    <Providers>
+      <App />
+    </Providers>
   </React.StrictMode>
 );
