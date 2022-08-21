@@ -1,9 +1,11 @@
+import TableUsers from "../../Components/Table";
+
 const Home = () => {
   return (
     <>
-      <h2>Home Page!!</h2>
+      <TableUsers />
     </>
   );
 };
 
-export default Home
+export default Home;
