@@ -1,7 +1,11 @@
-function App() {
+import Router from "./Routes";
 
+function App() {
   return (
-    <p>Hello world</p>
+    <div>
+      <h1>HELLO WORLD!!!</h1>
+      <Router />
+    </div>
   );
 }
 
