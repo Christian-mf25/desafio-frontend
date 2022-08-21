@@ -1,4 +1,4 @@
-import TableUsers from "../../Components/Table";
+import TableUsers from "../../Components/TableUsers";
 
 const Home = () => {
   return (
