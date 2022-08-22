@@ -78,6 +78,9 @@ export const UsersTable = styled(Table)`
     color: #6c9dc7;
     font-size: 0.8rem;
     font-weight: 600;
+
+		overflow: hidden;
+  	text-overflow: clip; 
   }
 
   .menu {
