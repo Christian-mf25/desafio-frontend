@@ -3,10 +3,10 @@ import styled from "styled-components";
 
 export const CheckBox = styled(Form.Check)`
   .form-check-input {
-    border: solid 2px var(--color-primary);
+    border: solid 2px #45cdcc;
     cursor: pointer;
   }
   .form-check-input:checked {
-    background-color: var(--color-primary);
+    background-color: #45cdcc;
   }
 `;
