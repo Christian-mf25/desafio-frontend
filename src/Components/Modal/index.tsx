@@ -1,6 +1,8 @@
 import { Form, Modal } from "react-bootstrap";
 
 import { useUsers } from "../../Providers/Users";
+import { ModalForm } from "../../styles/global";
+import { CheckBox } from "./styles";
 
 interface IFormCheckModal {
   showModal: boolean;
@@ -9,7 +11,7 @@ interface IFormCheckModal {
 
 const FormCheckModal = ({ showModal, handleModal }: IFormCheckModal) => {
   const {
-		perPage,
+    perPage,
     showName,
     showEmail,
     showCompany,
@@ -23,19 +25,29 @@ const FormCheckModal = ({ showModal, handleModal }: IFormCheckModal) => {
 
   return (
     <>
-      <Modal show={showModal} onHide={handleModal} size="sm">
+      <ModalForm show={showModal} onHide={handleModal}>
         <Modal.Body>
           <Form.Group>
             <Form.Label>
               <h4>Linhas por página</h4>
             </Form.Label>
 
-            <Form.Check label="Padrão" name="group1" checked={!perPage} onChange={handlePerPage}/>
-            <Form.Check label="50 linhas" name="group1" checked={perPage} onChange={handlePerPage}/>
+            <CheckBox
+              label="Padrão"
+              name="group1"
+              checked={!perPage}
+              onChange={handlePerPage}
+            />
+            <CheckBox
+              label="50 linhas"
+              name="group1"
+              checked={perPage}
+              onChange={handlePerPage}
+            />
           </Form.Group>
         </Modal.Body>
 
-        <hr style={{ width: "80%", margin: "0 auto" }} />
+        <hr style={{ width: "90%", margin: "0 auto" }} />
 
         <Modal.Body>
           <Form.Group>
@@ -43,29 +55,29 @@ const FormCheckModal = ({ showModal, handleModal }: IFormCheckModal) => {
               <h4>Colunas</h4>
             </Form.Label>
 
-            <Form.Check
+            <CheckBox
               label="Usuário"
               checked={showName}
               onChange={handleShowName}
             />
-            <Form.Check
+            <CheckBox
               label="E-mail"
               checked={showEmail}
               onChange={handleShowEmail}
             />
-            <Form.Check
+            <CheckBox
               label="Cliente"
               checked={showCompany}
               onChange={handleShowCompany}
             />
-            <Form.Check
+            <CheckBox
               label="Perfil de acesso"
               checked={showUsername}
               onChange={handleShowUsername}
             />
           </Form.Group>
         </Modal.Body>
-      </Modal>
+      </ModalForm>
     </>
   );
 };

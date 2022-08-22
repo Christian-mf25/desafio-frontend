@@ -1,10 +1,10 @@
-import { Button, Table } from "react-bootstrap";
 import { useState } from "react";
 
 import { AiOutlineMore } from "react-icons/ai";
 import { BiPencil } from "react-icons/bi";
 import { MdClose } from "react-icons/md";
 
+import { Container, UsersTable } from "./styles";
 import { useUsers } from "../../Providers/Users";
 import FormCheckModal from "../Modal";
 
@@ -16,18 +16,16 @@ const TableUsers = () => {
 
   return (
     <>
-      <div style={{ paddingLeft: "40px" }}>
-        <Table striped borderless>
+      <Container>
+        <UsersTable borderless>
           <thead>
             <tr>
               {showName && <th>USUÁRIO</th>}
               {showEmail && <th>EMAIL</th>}
               {showCompany && <th>CLIENTE</th>}
               {showUsername && <th>PERFIL DE ACESSO</th>}
-              <th>
-                <Button onClick={handleModal}>
-                  <AiOutlineMore />
-                </Button>
+              <th className="menu">
+                  <AiOutlineMore onClick={handleModal}/>
               </th>
             </tr>
           </thead>
@@ -37,19 +35,25 @@ const TableUsers = () => {
               <tr key={item.id}>
                 {showName && <td>{item.name.toUpperCase()}</td>}
                 {showEmail && <td>{item.email.toUpperCase()}</td>}
-                {showCompany && <td>{item.username.toUpperCase()}</td>}
+                {showCompany && (
+                  <td>
+                    <div className="username">
+                      {item.username.toUpperCase()}
+                    </div>
+                  </td>
+                )}
                 {showUsername && <td>{item.company.name.toUpperCase()}</td>}
                 <td>
-                  <BiPencil />
-                  <MdClose />
+                  <BiPencil className="write" />
+                  <MdClose className="delete" />
                 </td>
               </tr>
             ))}
           </tbody>
-        </Table>
+        </UsersTable>
 
         <FormCheckModal showModal={showModal} handleModal={handleModal} />
-      </div>
+      </Container>
     </>
   );
 };
